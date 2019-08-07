@@ -1,4 +1,5 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
+import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 
 @Component({
   selector: 'app-reports',
@@ -9,9 +10,14 @@ export class ReportsComponent implements OnInit {
 
   featureSelected = new EventEmitter<string>();
 
+  colorTheme = 'theme-red';
+
+  bsConfig: Partial<BsDatepickerConfig>;
+
   constructor() { }
 
   ngOnInit() {
+    this.bsConfig = Object.assign({}, { containerClass: this.colorTheme });
   }
 
   onSelect(feature: string) {

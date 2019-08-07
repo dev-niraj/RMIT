@@ -1,70 +1,89 @@
 <!-- <a href="#" class="btn btn-success btn-lg active mt-4" role="button" aria-pressed="true">Reports</a> -->
 <div class="row justify-content-center mt-2">
-    <div class="col-md-12">
-        <div class="buttons btn-group">
-            <button type="button" class="btn btn-success btn-lg active mt-4 mr-0">Export</button>
-            <button type="button" class="btn btn-success btn-lg active mt-4 dropdown-toggle dropdown-toggle-split"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="sr-only">Toggle Dropdown</span>
-            </button>
-            <div class="dropdown-menu dropdown-menu-right">
-                <a class="dropdown-item" href="#">.PDF</a>
-                <a class="dropdown-item" href="#">.XLS</a>
-                <a class="dropdown-item" href="#">.CSV</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">To PowerBI</a>
-            </div>
+  <div class="col-md-12">
+    <div class="row col-md-4">
+      <div class="input-group ml-auto" style="float: right !important">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Pick a Date Range"
+          aria-label="Text input with dropdown button"
+          bsDaterangepicker
+          [bsConfig]="{ isAnimated: true }"
+          style="font-size: 1.2em;"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn dropdown-toggle btn-success"
+            type="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+
+          >
+            Export
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" style="cursor: pointer;">.PDF</a>
+            <a class="dropdown-item" style="cursor: pointer;">.XLS</a>
+            <a class="dropdown-item" style="cursor: pointer;">.CSV</a>
+            <div role="separator" class="dropdown-divider"></div>
+            <a class="dropdown-item" style="cursor: pointer;">To PowerBI</a>
+          </div>
         </div>
-        <hr class="style1">
-        <div class="card">
-            <h5 class="card-header font-weight-bold">Reports</h5>
-            <!-- <h5 class="card-title">Special title treatment</h5> -->
-            <table class="table table-hover">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First Name</th>
-                        <th scope="col">Last Name</th>
-                        <th scope="col">Shift</th>
-                        <th scope="col">Start Date</th>
-                        <th scope="col">End Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Aditya </td>
-                        <td>Prasad</td>
-                        <td>S1</td>
-                        <td>1/06/2019</td>
-                        <td>31/06/2019</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Arun </td>
-                        <td>ER</td>
-                        <td>S3</td>
-                        <td>1/06/2019</td>
-                        <td>31/06/2019</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Akshya </td>
-                        <td>Suvarna</td>
-                        <td>S2</td>
-                        <td>1/06/2019</td>
-                        <td>31/06/2019</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">4</th>
-                        <td>Harsha </td>
-                        <td>Harsha</td>
-                        <td>S3</td>
-                        <td>1/06/2019</td>
-                        <td>31/06/2019</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+      </div>
     </div>
+
+    <hr class="style1" />
+    <div class="card">
+      <h5 class="card-header font-weight-bold">Reports</h5>
+      <!-- <h5 class="card-title">Special title treatment</h5> -->
+      <table class="table table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Shift</th>
+            <th scope="col">Start Date</th>
+            <th scope="col">End Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Aditya</td>
+            <td>Prasad</td>
+            <td>S1</td>
+            <td>1/06/2019</td>
+            <td>31/06/2019</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Arun</td>
+            <td>ER</td>
+            <td>S3</td>
+            <td>1/06/2019</td>
+            <td>31/06/2019</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Akshya</td>
+            <td>Suvarna</td>
+            <td>S2</td>
+            <td>1/06/2019</td>
+            <td>31/06/2019</td>
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <td>Harsha</td>
+            <td>Harsha</td>
+            <td>S3</td>
+            <td>1/06/2019</td>
+            <td>31/06/2019</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>

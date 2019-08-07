@@ -34,6 +34,7 @@
     "@fullcalendar/timegrid": "^4.2.0",
     "@fullcalendar/timeline": "^4.2.0",
     "alertifyjs": "^1.11.4",
+    "bootstrap": "4.1.1",
     "fullcalendar": "^3.10.0",
     "install": "^0.13.0",
     "jquery": "^3.4.1",
