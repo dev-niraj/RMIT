@@ -1,0 +1,71 @@
+<div class="container py-5" style="margin-top: 45px;">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-4 mx-auto">
+          <form #loginForm="ngForm" class="form-signin" (ngSubmit)="login()">
+            <div class="text-center mb-4">
+              <img
+                class="mb-4"
+                src="assets/images/full.png"
+                alt=""
+                width=""
+                height="100"
+              />
+              <div class="row justify-content-md-center">
+                <div class="col-md-auto">
+                  <a href="#" class="btn btn-danger btn-lg btn-danger-test"
+                    ><span class="glyphicon glyphicon-lock"></span>Login With
+                    SSO</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="form-label-group">
+              <input
+                type="email"
+                id="inputEmail"
+                [(ngModel)]="model.email"
+                class="form-control"
+                placeholder="Enter McAfee Email"
+                required
+                autofocus
+                name="email"
+                #username="ngModel"
+              />
+              <label for="inputEmail"></label>
+            </div>
+
+            <div class="form-label-group">
+              <input
+                type="password"
+                id="inputPassword"
+                [(ngModel)]="model.password"
+                class="form-control"
+                placeholder="Password"
+                required
+                name="password"
+                #password="ngModel"
+              />
+              <label for="inputPassword"></label>
+            </div>
+
+            <div class="checkbox mb-3">
+              <label>
+                <input type="checkbox" value="remember-me" /> Remember me
+              </label>
+            </div>
+            <button
+              [disabled]="!loginForm.valid"
+              class="btn btn-lg btn-danger btn-block btn-danger-test"
+              type="submit"
+            >
+              Sign in
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

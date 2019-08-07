@@ -1,0 +1,29 @@
+<div id="main">
+  <h1 mat-dialog-title>Change Color</h1>
+  <mat-divider></mat-divider>
+  <form class="ColorDialog">
+    <div>
+      <label>Shift</label>
+      <mat-radio-group>
+        <mat-radio-button value="auto" checked>{{data.curshift}}</mat-radio-button>
+      </mat-radio-group>
+    </div>
+      <div>
+      <mat-label >Color: </mat-label>
+      <button mat-icon-button [(colorPicker)]="color" [(ngModel)]="color" name="color" ngDefaultControl>
+        <mat-icon>color_lens</mat-icon>
+      </button>
+      
+      <input id="resInp" [style.background]="color"/>
+    
+    </div>
+    <div>
+    </div>
+  </form>
+  <mat-divider ></mat-divider>
+  
+  <div mat-dialog-actions>
+    <button mat-raised-button id="change" color="warn"[mat-dialog-close]="color">Change Color</button>
+    <button mat-raised-button color="warn" (click)="openDialog()">Swap</button>
+  </div>
+  </div>

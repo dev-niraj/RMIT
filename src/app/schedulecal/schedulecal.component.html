@@ -1,0 +1,15 @@
+<full-calendar
+  *ngIf="options"
+  
+  #fullcalendar
+  themeSystem="bootstrap"
+  [businessHours]="options.businessHours"
+  [editable]="true"
+  [events]="options.events"
+  [header]="options.header"
+  [customButtons]="options.customButtons"
+  [plugins]="options.plugins"
+  (eventClick)="eventClick($event)"
+  (addEventSource)="addEventSource($event)"
+  (setProp)="setProp($event)"
+></full-calendar>

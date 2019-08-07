@@ -1,0 +1,10 @@
+.bootstrap-select .dropdown-menu {
+  align-content: center;
+  min-width: 600px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.bootstrap-select > .dropdown-toggle {
+  width: 600px;
+}

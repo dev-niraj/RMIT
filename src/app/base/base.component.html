@@ -1,0 +1,14 @@
+<div class="row" id="body-row">
+  <!-- Sidebar -->
+  <div id="sidebar-container" class="sidebar-expanded d-none d-md-block col-2">
+    <app-sidebar-nav (sideNavSelected)="onNavigate($event)"></app-sidebar-nav>
+  </div>
+  <div class="container mt-5">
+    <app-my-schedule *ngIf="loadedSideNav === 'landing'"></app-my-schedule>
+    <app-reports *ngIf="loadedSideNav === 'report'"></app-reports>
+    <app-teams *ngIf="loadedSideNav === 'teams'"></app-teams>
+    <app-shift-preference
+      *ngIf="loadedSideNav === 'shift_pref'"
+    ></app-shift-preference>
+  </div>
+</div>

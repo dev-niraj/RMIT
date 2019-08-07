@@ -1,0 +1,222 @@
+<ul class="list-group sticky-top sticky-offset">
+  <!-- Separator with title -->
+  <li
+    class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed"
+  >
+    <small>MAIN MENU</small>
+  </li>
+  <!-- /END Separator -->
+  <!-- Menu with submenu -->
+  <a
+    href="#submenu1"
+    data-toggle="collapse"
+    aria-expanded="false"
+    class="list-group-item list-group-item-action flex-column align-items-start nav-roster-dark"
+    id="sidbar1"
+  >
+    <div class="d-flex w-100 justify-content-start align-items-center ">
+      <span class="fa fa-dashboard fa-fw mr-3"></span>
+      <span class="menu-collapsed">Dashboard</span>
+      <span class="submenu-icon ml-auto"></span>
+    </div>
+  </a>
+  <!-- Submenu content -->
+  <div id="submenu1" class="collapse sidebar-submenu">
+    <a
+      style="cursor: pointer"
+      class="list-group-item list-group-item-action nav-roster-dark text-white nav-roster-dark"
+      (click)="onSelect('landing')"
+    >
+      <span class="menu-collapsed">My Schedule</span>
+    </a>
+    <a
+    style="cursor: pointer"
+      class="list-group-item list-group-item-action nav-roster-dark text-white"
+    >
+      <span
+        class="menu-collapsed"
+        data-toggle="modal"
+        data-target="#scheduleModal"
+        data-whatever="@create_schedule"
+        >Create</span
+      >
+    </a>
+    <a
+    style="cursor: pointer"
+      class="list-group-item list-group-item-action nav-roster-dark text-white"
+      (click)="onSelect('teams')"
+    >
+      <span class="menu-collapsed">Teams</span>
+    </a>
+    <a
+      
+      class="list-group-item list-group-item-action nav-roster-dark text-white"
+      style="border-radius: 0; cursor: pointer"
+      (click)="onSelect('report')"
+    >
+      <span class="menu-collapsed">Reports</span>
+    </a>
+  </div>
+  <!-- Separator with title -->
+  <li
+    class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed"
+  >
+    <small>OPTIONS</small>
+  </li>
+  <!-- /END Separator -->
+  <a
+    
+    class="nav-roster-dark list-group-item list-group-item-action"
+    style="border-radius: 0; cursor: pointer"
+  >
+    <div class="d-flex w-100 justify-content-start align-items-center">
+      <span class="fa fa-calendar fa-fw mr-3"></span>
+      <span class="menu-collapsed">Calendar</span>
+    </div>
+  </a>
+  <a
+    
+    class="nav-roster-dark list-group-item list-group-item-action"
+    style="border-radius: 0;"
+    (click)="onSelect('shift_pref')"
+  >
+    <div class="d-flex w-100 justify-content-start align-items-center">
+      <span class="fa fa-cog fa-fw mr-3"></span>
+      <span class="menu-collapsed">Shift Preference</span>
+    </div>
+  </a>
+</ul>
+
+<div class="container">
+  <div class="modal fade bd-example-modal-lg" id="scheduleModal" tabindex="-1" role="dialog"
+    aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Service Coverage</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <fieldset>
+              <div class="modal-body">
+                <!-- <p>This <a href="#" role="button" class="btn btn-secondary popover-test" title="Popover title" data-content="Popover body content is set in this attribute.">button</a> triggers a popover on click.</p> -->
+                <form>
+                  <div class="btn-group-lg btn-group-vertical">
+                    <button type="button" class="btn btn-success" data-toggle="popover" data-trigger="focus"
+                      title="Minimum Requirements"
+                      data-content="Please Meet the following Requirements - Minimum Person : 3">24 x 7 Shift</button>
+                    <button tabindex="0" type="button" class="btn btn-primary mt-2" role="button"
+                      data-toggle="popover" data-trigger="focus" title="Minimum Requirements"
+                      data-content="Please Meet the following Requirements - Minimum Person : 3">24 x 5 Shift</button>
+                    <button type="button" class="btn btn-warning mt-2" data-toggle="popover" data-trigger="focus"
+                      title="Minimum Requirements"
+                      data-content="Please Meet the following Requirements - Minimum Person : 3">24 x 5 + On Call
+                      Shift</button>
+                  </div>
+                </form>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#team-select">Next</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade bd-example-modal-lg" id="team-select" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">TEAM</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-6 w-75 text-center">
+              <select class="selectpicker" data-live-search="true" data-actions-box="true" data-header="Select a Team">
+                <optgroup data-max-options="1">
+                  <option>Team 1</option>
+                  <option>Team 2</option>
+                  <option>Team 3</option>
+                  <option>Team 4</option>
+                  <option>Team 5</option>
+                  <option>Team 6</option>
+                  <option>Team 7</option>
+                  <option>Team 8</option>
+                  <option>Team 9</option>
+                  <option>Team 10</option>
+                  <option>Team 11</option>
+                  <option>Team 12</option>
+                </optgroup>
+              </select>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col-md-5">
+              <div class="card border-dark">
+                <div class="card-header font-weight-bold">
+                  AVAILABLE MEMBERS
+                </div>
+                <div class="card-body text-dark">
+                  <select id="team-mem" class="custom-select" multiple>
+                      <option value="1">Aditya</option>
+                      <option value="2">Arun</option>
+                      <option value="4">Niraj</option>
+                      <option value="5">Jaydev</option>
+                      <option value="8">Imaad</option>
+                    </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+                <button type="button" id="left" class="btn btn-primary btn-xs"><i class="fa fa-angle-double-left"></i></button>
+                <button type="button" id="right" class="btn btn-primary btn-xs"><i class="fa fa-angle-double-right"></i></button>
+            </div>
+            <div class="col-md-5">
+              <div class="card border-dark">
+                <div class="card-header font-weight-bold ">
+                  SELECTED MEMBERS
+                </div>
+                <div class="card-body text-dark">
+                  <select id="team-mem-select" class="custom-select" multiple>
+                    
+                  </select>
+                </div>
+              </div>
+          </div>   
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#erroModal">Submit</button>              
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="erroModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title " id="exampleModalLabel"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Error</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Minimum Conditions Not Met!
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal">Try Again!</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

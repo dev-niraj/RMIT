@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-dark nav-roster-dark nav-roster-dark">
+    <a class="navbar-brand" href="#">
+        <img src="assets/images/shield.png" width="30" height="30" alt="">
+    </a>
+    <a class="navbar-brand" href="#">Roaster Management</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02"
+        aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div *ngIf="loggedIn()" class="collapse navbar-collapse" id="navbarColor02">
+        <ul class="nav nav-pills ml-auto" >
+            <li class="nav-item dropdown ml-auto">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" dropDownToggle><i class="fa fa-user"
+                         aria-hidden="true"></i> Welcome, {{authService.decodedToken?.unique_name}}</a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a href="#" class="dropdown-item">WWID: {{authService.decodedToken?.nameid}}</a>
+                    <a href="#" class="dropdown-item" >Name: {{authService.decodedToken?.unique_name}}</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item" (click)="logout()"><i class="fa fa-sign-out"></i> Logout</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>

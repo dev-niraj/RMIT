@@ -1,0 +1,17 @@
+div{
+    margin: 10px;
+  
+  }
+  mat-radio-button{
+    margin: 10px;
+  }
+  #change{
+    margin-right:50%;
+  }
+  #main{
+    font-size: 1.1em;
+  }
+  #resInp{
+    padding: 0%;
+    width: 25px;  
+  }
