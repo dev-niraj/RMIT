@@ -1,42 +1,67 @@
 <!-- <a href="#" class="btn btn-success btn-lg active mt-4" role="button" aria-pressed="true">Reports</a> -->
 <div class="row justify-content-center mt-2">
   <div class="col-md-12">
-    <div class="row col-md-4">
-      <div class="input-group ml-auto" style="float: right !important">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Pick a Date Range"
-          aria-label="Text input with dropdown button"
-          bsDaterangepicker
-          [bsConfig]="{ isAnimated: true }"
-          style="font-size: 1.2em;"
-        />
-        <div class="input-group-append">
-          <button
-            class="btn dropdown-toggle btn-success"
-            type="button"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-
-          >
-            Export
-          </button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" style="cursor: pointer;">.PDF</a>
-            <a class="dropdown-item" style="cursor: pointer;">.XLS</a>
-            <a class="dropdown-item" style="cursor: pointer;">.CSV</a>
-            <div role="separator" class="dropdown-divider"></div>
-            <a class="dropdown-item" style="cursor: pointer;">To PowerBI</a>
+    <form [formGroup]="myForm">
+      <div class="row col-md-5">
+        <div
+          class="input-group ml-auto"
+          style="float: right !important"
+        >
+          <input
+            type="text"
+            class="form-control"
+            formControlName="range"
+            placeholder="Pick a Date Range"
+            aria-label="Text input with dropdown button"
+            bsDaterangepicker
+            [bsConfig]="{
+              isAnimated: true,
+              dateRangeInputFormat: 'MMMM Do YYYY',
+              containerClass: 'theme-dark-blue',
+              adaptivePosition: true
+            }"
+            [isOpen]="isOpen"
+            style="font-size: 1.1em;"
+          />
+          <pre *ngIf="myForm.value.range" class="code=preview">
+            from {{ myForm.value.range[0] | date }} to {{ myForm.value.range[1] | date }}
+          </pre>
+  
+          <div class="input-group-append">
+            <button
+              class="btn btn-dark"
+              type="button"
+              aria-haspopup="true"
+              aria-expanded="false"
+              (click)="isOpen = !isOpen"
+            >
+              Apply Filter
+            </button>
+  
+            <button
+              class="btn dropdown-toggle btn-success ml-2"
+              type="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Export
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" style="cursor: pointer;">.PDF</a>
+              <a class="dropdown-item" style="cursor: pointer;">.XLS</a>
+              <a class="dropdown-item" style="cursor: pointer;">.CSV</a>
+              <div role="separator" class="dropdown-divider"></div>
+              <a class="dropdown-item" style="cursor: pointer;">To PowerBI</a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </form>
 
     <hr class="style1" />
     <div class="card">
-      <h5 class="card-header font-weight-bold">Reports</h5>
+      <h5 class="card-header font-weight-bold">Report</h5>
       <!-- <h5 class="card-title">Special title treatment</h5> -->
       <table class="table table-hover">
         <thead class="thead-dark">
@@ -50,37 +75,21 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Aditya</td>
-            <td>Prasad</td>
-            <td>S1</td>
-            <td>1/06/2019</td>
-            <td>31/06/2019</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Arun</td>
-            <td>ER</td>
-            <td>S3</td>
-            <td>1/06/2019</td>
-            <td>31/06/2019</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Akshya</td>
-            <td>Suvarna</td>
-            <td>S2</td>
-            <td>1/06/2019</td>
-            <td>31/06/2019</td>
-          </tr>
-          <tr>
-            <th scope="row">4</th>
-            <td>Harsha</td>
-            <td>Harsha</td>
-            <td>S3</td>
-            <td>1/06/2019</td>
-            <td>31/06/2019</td>
+          <tr *ngFor="let value of values; let i = index">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ value.name }}</td>
+            <td>Last Name</td>
+            <td>{{ value.sid }}</td>
+            <td>
+              {{
+                value.start_date.substring(0, value.start_date.lastIndexOf("T"))
+              }}
+            </td>
+            <td>
+              {{
+                value.end_date.substring(0, value.start_date.lastIndexOf("T"))
+              }}
+            </td>
           </tr>
         </tbody>
       </table>
