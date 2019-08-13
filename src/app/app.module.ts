@@ -28,6 +28,7 @@ import { AuthGuard } from './_guards/auth.guard';
 import { appRoutes } from './routes';
 import { HttpClientModule } from '@angular/common/http';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { ExcelService } from './_services/excel.service';
 
 @NgModule({
   declarations: [
@@ -81,7 +82,8 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
   providers: [
     AuthService,
     AlertifyService,
-    AuthGuard
+    AuthGuard,
+    ExcelService
   ],
   bootstrap: [AppComponent],
   entryComponents: [SchedulecalComponent, DialogBoxCalComponent, SwapPopupCalComponent]
