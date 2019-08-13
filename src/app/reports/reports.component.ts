@@ -122,12 +122,11 @@ export class ReportsComponent implements OnInit {
   }
 
   getReport() {
-    this.http.get('http://localhost:5000/api/report/getreport').subscribe(response => {
+    this.http.get('http://localhost:5000/api/report').subscribe(response => {
       this.values = response;
       localStorage.setItem('reports', JSON.stringify(this.values));
     }, error => {
       console.log('error');
     });
   }
-
 }
