@@ -1,6 +1,7 @@
-import { Component, OnInit, EventEmitter } from '@angular/core';
+import { Component, OnInit, EventEmitter, ViewChild } from '@angular/core';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { HttpClient } from '@angular/common/http';
+import { AgGridAngular } from 'ag-grid-angular';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { Reports } from '../Model/report.model';
 import { DatePipe } from '@angular/common';
@@ -28,6 +29,7 @@ const options = {
   styleUrls: ['./reports.component.css']
 })
 export class ReportsComponent implements OnInit {
+
   isOpen = false;
   values: any;
   // reports: Reports[] = [];
@@ -56,6 +58,13 @@ export class ReportsComponent implements OnInit {
   colorTheme = 'theme-red';
 
   bsConfig: Partial<BsDatepickerConfig>;
+
+  columnDefs = [
+    { headerName: 'name', field: 'name', sortable: true, filter: true, checkboxSelection: true},
+    { headerName: 'sid', field: 'sid', sortable: true, filter: true },
+    { headerName: 'start_date', field: 'start_date', sortable: true, filter: true },
+    { headerName: 'end_date', field: 'end_date', sortable: true, filter: true }
+  ];
 
   // tslint:disable-next-line:max-line-length
   constructor(private http: HttpClient, private formBuilder: FormBuilder, private datePipe: DatePipe, private excelService: ExcelService) { }
@@ -122,11 +131,6 @@ export class ReportsComponent implements OnInit {
   }
 
   getReport() {
-    this.http.get('http://localhost:5000/api/report').subscribe(response => {
-      this.values = response;
-      localStorage.setItem('reports', JSON.stringify(this.values));
-    }, error => {
-      console.log('error');
-    });
+    this.values = this.http.get('http://localhost:5000/api/report');
   }
 }

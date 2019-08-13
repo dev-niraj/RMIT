@@ -12,6 +12,7 @@ import { ScheduleCreateComponent } from './schedule-create/schedule-create.compo
 import { MyScheduleComponent } from './my-schedule/my-schedule.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap';
+import { AgGridModule } from 'ag-grid-angular';
 // tslint:disable-next-line:max-line-length
 import { MatDialogModule, MatDatepickerModule, MatNativeDateModule, MatInputModule, MatRadioModule, MatCheckboxModule, MatButtonModule, MatFormFieldModule, MatIconModule, MatDividerModule } from '@angular/material';
 import { ColorPickerModule } from 'ngx-color-picker';
@@ -77,7 +78,8 @@ import { ExcelService } from './_services/excel.service';
     MatDividerModule,
     RouterModule.forRoot(appRoutes),
     BsDropdownModule.forRoot(),
-    BsDatepickerModule.forRoot()
+    BsDatepickerModule.forRoot(),
+    AgGridModule.withComponents([])
   ],
   providers: [
     AuthService,

@@ -1,67 +1,10 @@
 <!-- <a href="#" class="btn btn-success btn-lg active mt-4" role="button" aria-pressed="true">Reports</a> -->
 <div class="row justify-content-center mt-2">
-  <div class="col-md-12">
-    <form [formGroup]="myForm">
+  <div class="col-md-9">
+    <form>
       <div class="row col-md-7">
         <div class="input-group ml-auto" style="float: right !important">
-          <input
-            type="text"
-            [ngModelOptions]="{ standalone: true }"
-            class="form-control"
-            placeholder="Pick a Start Date"
-            aria-label="start date"
-            bsDatepicker
-            [(ngModel)]="start_date"
-            [bsConfig]="{
-              isAnimated: true,
-              dateInputFormat: 'DD-MM-YYYY',
-              containerClass: 'theme-dark-blue',
-              adaptivePosition: true
-            }"
-            [isOpen]="isOpen"
-            style="font-size: 1.1em;"
-            (input)="onRnageSelect()"
-          />
-
-          <input
-            type="text"
-            [ngModelOptions]="{ standalone: true }"
-            class="form-control"
-            placeholder="Pick a End Date"
-            aria-label="end date"
-            bsDatepicker
-            [(ngModel)]="end_date"
-            [bsConfig]="{
-              isAnimated: true,
-              dateInputFormat: 'DD-MM-YYYY',
-              containerClass: 'theme-dark-blue',
-              adaptivePosition: true
-            }"
-            [isOpen]="isOpen"
-            style="font-size: 1.1em;"
-          />
-
           <div class="input-group-append">
-            <button
-              class="btn btn-dark"
-              type="button"
-              aria-haspopup="true"
-              aria-expanded="false"
-              (click)="onRnageSelect()"
-            >
-              Apply Filter
-            </button>
-
-            <button
-              class="btn btn-warning"
-              type="button"
-              aria-haspopup="true"
-              aria-expanded="false"
-              (click)="RestReport()"
-            >
-              Reset Filter
-            </button>
-
             <button
               class="btn dropdown-toggle btn-success ml-2"
               type="button"
@@ -87,32 +30,16 @@
     <div class="card">
       <h5 class="card-header font-weight-bold">Report</h5>
       <!-- <h5 class="card-title">Special title treatment</h5> -->
-      <table class="table table-hover" id="datatable"> 
-        <thead class="thead-dark">
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Name</th>
-            <!-- <th scope="col">Last Name</th> -->
-            <th scope="col">Shift</th>
-            <th scope="col">Start Date</th>
-            <th scope="col">End Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let value of values; let i = index">
-            <th scope="row">{{ i + 1 }}</th>
-            <td>{{ value.name }}</td>
-            <!-- <td>Last Name</td> -->
-            <td>{{ value.sid }}</td>
-            <td>
-              {{ value.start_date | date: "dd-MM-yyyy" }}
-            </td>
-            <td>
-              {{ value.end_date | date: "dd-MM-yyyy" }}
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <ag-grid-angular 
+        #agGrid
+        style="width: 800px; height: 500px;" 
+        class="ag-theme-material"
+        id="datatable"
+        [rowData]="values | async"
+        [columnDefs]="columnDefs"
+        rowSelection="multiple"
+        >
+    </ag-grid-angular>
     </div>
   </div>
 </div>
