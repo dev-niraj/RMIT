@@ -37,7 +37,7 @@
     "ag-grid-angular": "^21.1.0",
     "ag-grid-community": "^21.1.1",
     "alertifyjs": "^1.11.4",
-    "bootstrap": "4.1.1",
+    "bootstrap": "4.3.1",
     "export-to-csv": "^0.2.1",
     "file-saver": "^2.0.2",
     "fullcalendar": "^3.10.0",
